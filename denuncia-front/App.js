@@ -1,20 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StatusBar } from 'expo-status-bar';
+import { View } from 'react-native';
+import StyleMain from './style/main'
+import TelaInicial from './src/screen/tela-inicial/tela-inicial'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>APPP</Text>
-      <StatusBar style="auto" />
+    <View style={StyleMain.container}>
+      <TelaInicial/>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
