@@ -1,13 +1,25 @@
 package com.denuciaassedio.futuropre_vestibular.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	
+	@OneToMany
+	private List<Denuncia> denuncia = new ArrayList<>();
 
 	public User() {
 	}
