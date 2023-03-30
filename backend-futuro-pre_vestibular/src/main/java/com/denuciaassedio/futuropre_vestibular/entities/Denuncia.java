@@ -3,19 +3,20 @@ package com.denuciaassedio.futuropre_vestibular.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class User implements Serializable {
+public class Denuncia implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
 	private Integer id;
-	private String name;
+	private User user;
+	private String text;
+	
+	public Denuncia() {}
+	
+	public Denuncia(Integer id, User user, String text) {
 
-	public User() {
-	}
-
-	public User(Integer id, String name) {
 		this.id = id;
-		this.name = name;
-
+		this.user = user;
+		this.text = text;
 	}
 
 	public Integer getId() {
@@ -26,12 +27,20 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public User getUser() {
+		return user;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	@Override
@@ -47,8 +56,12 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Denuncia other = (Denuncia) obj;
 		return Objects.equals(id, other.id);
 	}
+	
+	
+	
+	
 
 }
