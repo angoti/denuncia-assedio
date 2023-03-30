@@ -8,7 +8,7 @@ import com.denuciaassedio.futuropre_vestibular.service.UserService;
 
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UserController {
 	
 	@Autowired

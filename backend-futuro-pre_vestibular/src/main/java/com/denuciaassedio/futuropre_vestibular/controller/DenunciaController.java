@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.denuciaassedio.futuropre_vestibular.service.DenunciaService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/denuncias")
 public class DenunciaController {
 
 	@Autowired
