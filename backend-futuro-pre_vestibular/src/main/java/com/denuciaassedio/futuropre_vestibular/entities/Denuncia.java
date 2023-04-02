@@ -22,7 +22,7 @@ public class Denuncia implements Serializable{
 	private String text;
 	
 	@OneToOne	//1 denuncia / 1 user
-	@JoinColumn(name="id_user")
+	@JoinColumn(name="user_id")		//fk db
 	private User user;
 	
 	
