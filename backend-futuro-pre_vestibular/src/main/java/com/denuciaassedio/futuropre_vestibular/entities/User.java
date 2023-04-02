@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +24,9 @@ public class User implements Serializable {
 	private Integer id;
 	private String name;
 	
-	@OneToMany
+	
+	@JsonIgnore // (lazy loading)	 1 / N need associação para eviar loop 
+	@OneToMany(mappedBy = "denuncia") 
 	private List<Denuncia> denuncia = new ArrayList<>();
 
 	public User() {
