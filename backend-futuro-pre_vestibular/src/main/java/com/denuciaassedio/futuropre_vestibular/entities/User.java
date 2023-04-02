@@ -26,7 +26,7 @@ public class User implements Serializable {
 	
 	
 	@JsonIgnore // (lazy loading)	 1 / N need associação para eviar loop 
-	@OneToMany(mappedBy = "denuncia") 
+	@OneToMany//(mappedBy = "denuncia") 
 	private List<Denuncia> denuncia = new ArrayList<>();
 
 	public User() {

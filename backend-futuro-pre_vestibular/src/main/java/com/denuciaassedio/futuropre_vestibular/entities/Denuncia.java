@@ -28,11 +28,12 @@ public class Denuncia implements Serializable{
 	
 	public Denuncia() {}
 	
-	public Denuncia(Integer id, User user, String text) {
+	public Denuncia(Integer id, String text, User user) {
 
 		this.id = id;
-		this.user = user;
 		this.text = text;
+		this.user = user;
+		
 	}
 
 	public Integer getId() {
