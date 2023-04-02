@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.denuciaassedio.futuropre_vestibular.entities.Denuncia;
-import com.denuciaassedio.futuropre_vestibular.entities.User;
 import com.denuciaassedio.futuropre_vestibular.repository.DenunciaRepository;
 import com.denuciaassedio.futuropre_vestibular.service.exception.ResourceNotFoundException;
 

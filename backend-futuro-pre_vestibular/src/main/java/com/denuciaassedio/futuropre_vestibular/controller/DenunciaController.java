@@ -21,5 +21,7 @@ public class DenunciaController {
 		Denuncia obj = service.findById(id);
 		return obj;
 	}
+	
+	
 
 }
