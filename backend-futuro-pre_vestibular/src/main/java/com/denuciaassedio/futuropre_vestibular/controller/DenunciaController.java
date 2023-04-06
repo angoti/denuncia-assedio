@@ -15,12 +15,15 @@ public class DenunciaController {
 
 	@Autowired
 	private DenunciaService service;
-
-	@GetMapping("/{id}")
+	
+	
+	@GetMapping
 	public Denuncia findById(@PathVariable Integer id) {
 		Denuncia obj = service.findById(id);
 		return obj;
 	}
+
+
 	
 	
 

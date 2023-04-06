@@ -31,11 +31,12 @@ public class UserController {
 		List<User> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
+
 	
 	@GetMapping("/{id}")
-	public User findById(@PathVariable Integer id) {
+	public ResponseEntity<User> findById(@PathVariable Integer id) {
 		User obj =  service.findById(id);
-		return obj;
+		return ResponseEntity.ok().body(obj);
 	}
 	
 	@PostMapping
@@ -57,11 +58,5 @@ public class UserController {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
-	
-	
-	
-
-	
 	
 }
