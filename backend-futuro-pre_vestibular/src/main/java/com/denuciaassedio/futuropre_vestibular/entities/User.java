@@ -20,22 +20,26 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	
-	
-	@JsonIgnore // (lazy loading)	 1 / N need associação para eviar loop 
-	@OneToMany//(mappedBy = "denuncia") 
+	private String email;
+	private String numberPhone;
+	private String class_studant;
+
+	@JsonIgnore // (lazy loading) 1 / N need associação para eviar loop
+	@OneToMany // (mappedBy = "denuncia")
 	private List<Denuncia> denuncia = new ArrayList<>();
 
 	public User() {
 	}
 
-	public User(Integer id, String name) {
+	public User(Integer id, String name, String email, String numberPhone, String class_studant) {
 		this.id = id;
 		this.name = name;
-
+		this.email = email;
+		this.numberPhone = numberPhone;
+		this.class_studant = class_studant;
 	}
 
 	public Integer getId() {
@@ -54,9 +58,33 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getNumberPhone() {
+		return numberPhone;
+	}
+
+	public void setNumberPhone(String numberPhone) {
+		this.numberPhone = numberPhone;
+	}
+
+	public String getClass_studant() {
+		return class_studant;
+	}
+
+	public void setClass_studant(String class_studant) {
+		this.class_studant = class_studant;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(email, id);
 	}
 
 	@Override
@@ -68,9 +96,7 @@ public class User implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(email, other.email) && Objects.equals(id, other.id);
 	}
-
-
 
 }
