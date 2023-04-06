@@ -2,7 +2,7 @@ package com.denuciaassedio.futuropre_vestibular.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Date;
+
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -35,11 +35,14 @@ public class Denuncia implements Serializable{
 	@JoinColumn(name="user_id")		//fk db
 	private User user;
 	
+	private Integer denunciaStatus;
+	
 	
 	public Denuncia() {}
 	
 	public Denuncia(Integer id, String place, Instant moment, User user, String text, String name_author) {
 		this.id = id;
+		this.setDenunciaStatus(denunciaStatus);
 		this.place = place;
 		this.user = user;
 		this.text = text;
@@ -96,6 +99,14 @@ public class Denuncia implements Serializable{
 		this.name_author = name_author;
 	}
 	
+	public Integer getDenunciaStatus() {
+		return denunciaStatus;
+	}
+
+	public void setDenunciaStatus(Integer denunciaStatus) {
+		this.denunciaStatus = denunciaStatus;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -112,6 +123,8 @@ public class Denuncia implements Serializable{
 		Denuncia other = (Denuncia) obj;
 		return Objects.equals(id, other.id);
 	}
+
+
 
 
 
