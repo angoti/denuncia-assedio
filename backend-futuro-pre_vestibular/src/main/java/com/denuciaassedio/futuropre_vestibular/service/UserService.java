@@ -45,9 +45,8 @@ public class UserService {
 		aux.setName(obj.getName());		
 	}
 	
-	public void delete(Integer id) {
-		User obj  =  repository.findById(id).get();
-		repository.delete(obj);
+	public void delete(Integer id) {	//verificar se esta ok
+		 repository.findById(id).get();
 	}
 	
 
