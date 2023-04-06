@@ -1,6 +1,8 @@
 package com.denuciaassedio.futuropre_vestibular.config;
 
+import java.time.Instant;
 import java.util.Arrays;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,6 +13,9 @@ import com.denuciaassedio.futuropre_vestibular.entities.Denuncia;
 import com.denuciaassedio.futuropre_vestibular.entities.User;
 import com.denuciaassedio.futuropre_vestibular.repository.DenunciaRepository;
 import com.denuciaassedio.futuropre_vestibular.repository.UserRepository;
+
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Configuration
 @Profile("test")
@@ -35,13 +40,15 @@ public class TestConfig implements CommandLineRunner {
 
 		User u3 = new User(null, "Capitu", "capitu@gmail.com", "23456-7800", "E2023-3");
 
-		// User u4 = new User(null, "Mr Nodody", "NOBODY@gmail.com", "23456-7800","E2023-2");
+		// User u4 = new User(null, "Mr Nodody", "NOBODY@gmail.com",
+		// "23456-7800","E2023-2");
 
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
-		Denuncia d1 = new Denuncia(null, "Todo dia, todo dia, todo dia, todo dia", u3);
-		Denuncia d2 = new Denuncia(null, "Ateus à procura de deus, variações do mesmo tema", u2);
-		Denuncia d3 = new Denuncia(null, "qual é o seu limite, se é que ele existe", u1);
+		Denuncia d1 = new Denuncia(null, "Refeitorio", Instant.parse("2023-02-20T19:53:07Z"), u3, "TEXT AREA PARA EXPOR DENUNCIA d1", "Author1");
+		Denuncia d2 = new Denuncia(null, "Sala", Instant.parse("2023-01-12T18:12:07Z"), u1, "TEXT AREA PARA EXPOR DENUNCIA d2", "Author2");
+		Denuncia d3 = new Denuncia(null, "Corredor", Instant.parse("2023-03-06T20:45:07Z"), u2, "TEXT AREA PARA EXPOR DENUNCIA d3", "Author3");
+
 
 		denunciaRepository.saveAll(Arrays.asList(d1, d2, d3));
 

@@ -1,7 +1,11 @@
 package com.denuciaassedio.futuropre_vestibular.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
+import java.util.Date;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +23,13 @@ public class Denuncia implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String text;
+	private String place;
+	private String name_author;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+	private Instant moment;
 	
 	@OneToOne	//1 denuncia / 1 user
 	@JoinColumn(name="user_id")		//fk db
@@ -28,13 +38,15 @@ public class Denuncia implements Serializable{
 	
 	public Denuncia() {}
 	
-	public Denuncia(Integer id, String text, User user) {
-
+	public Denuncia(Integer id, String place, Instant moment, User user, String text, String name_author) {
 		this.id = id;
-		this.text = text;
+		this.place = place;
 		this.user = user;
-		
+		this.text = text;
+		this.moment = moment;
+		this.name_author = name_author;
 	}
+
 
 	public Integer getId() {
 		return id;
@@ -59,7 +71,31 @@ public class Denuncia implements Serializable{
 	public void setText(String text) {
 		this.text = text;
 	}
+	
+	public String getPlace() {
+		return place;
+	}
 
+	public void setPlace(String place) {
+		this.place = place;
+	}
+	
+	public Instant getMoment() {
+		return moment;
+	}
+
+	public void setMoment(Instant moment) {
+		this.moment = moment;
+	}
+
+	public String getName_author() {
+		return name_author;
+	}
+
+	public void setName_author(String name_author) {
+		this.name_author = name_author;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -76,9 +112,9 @@ public class Denuncia implements Serializable{
 		Denuncia other = (Denuncia) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
+
+
+
+
 
 }
