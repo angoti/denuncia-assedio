@@ -3,25 +3,26 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-nativ
 
 
 import { useForm, Controller } from 'react-hook-form'
-import {TextInputMask} from 'react-native-masked-text';
+import { TextInputMask } from 'react-native-masked-text';
 
 export function Register() {
   const { control, handleSubmit, formState: { erros } } = useForm({})
 
-/*  valida email regex
-  const { entradaValue, setEntradaValue } = useState('')
-
-  const {checkEntradaValue = inputValue => {
-    setEntradaValue(inputValue.replace([^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+))
-  }}
-*/
+  /*  valida email regex
+    const { entradaValue, setEntradaValue } = useState('')
   
+    const {checkEntradaValue = inputValue => {
+      setEntradaValue(inputValue.replace([^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+))
+    }}
+  */
+
   function handleRegisterUser(data) {
     console.log(data)
   }
 
   return (
-    <View>
+    <View style={{padding: 20}}>
+    <Text style={{fontWeight: 'bold', fontSize: 24, alignSelf: 'center'}}>Cadastro Usuário</Text>
       <Controller
         control={control}
         name="userName"
@@ -35,7 +36,7 @@ export function Register() {
         )}
       />
 
-<Controller
+      <Controller
         control={control}
         name="cpf"
         render={({ field: { onChange, value } }) => (
@@ -70,11 +71,11 @@ export function Register() {
           <TextInputMask
             style={styles.input}
             type={"cel-phone"}
-              options={{
-                maskType: 'BRL',
-                withDDD: true,
-                dddMask: '(99) '
-              }}
+            options={{
+              maskType: 'BRL',
+              withDDD: true,
+              dddMask: '(99) '
+            }}
             onChangeText={onChange}
             value={value}
             placeholder='Phone'
@@ -84,7 +85,7 @@ export function Register() {
       />
 
 
-      <TouchableOpacity style={styles.button}  onPress={handleSubmit(handleRegisterUser)}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit(handleRegisterUser)}>
         <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
 
@@ -99,19 +100,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 7,
     marginTop: 20
-},
-buttonText: {
+  },
+  buttonText: {
     color: '#fff',
     fontSize: 15,
     fontWeight: 'bold',
-},
+  },
 
 
-input: {
-  height: 40,
-  margin: 12,
-  borderWidth: 1,
-  padding: 10,
-},
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
 
 })
