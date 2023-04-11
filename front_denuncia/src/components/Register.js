@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 
+
 import { useForm, Controller } from 'react-hook-form'
+import {TextInputMask} from 'react-native-masked-text';
 
 export function Register() {
   const { control, handleSubmit, formState: { erros } } = useForm({})
 
+/*  valida email regex
+  const { entradaValue, setEntradaValue } = useState('')
+
+  const {checkEntradaValue = inputValue => {
+    setEntradaValue(inputValue.replace([^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+))
+  }}
+*/
+  
   function handleRegisterUser(data) {
     console.log(data)
   }
@@ -21,6 +31,21 @@ export function Register() {
             onChangeText={onChange}
             value={value}
             placeholder='Name'
+          />
+        )}
+      />
+
+<Controller
+        control={control}
+        name="cpf"
+        render={({ field: { onChange, value } }) => (
+          <TextInputMask
+            style={styles.input}
+            type={"cpf"}
+            onChangeText={onChange}
+            value={value}
+            placeholder='CPF'
+
           />
         )}
       />
@@ -42,11 +67,18 @@ export function Register() {
         control={control}
         name="phone"
         render={({ field: { onChange, value } }) => (
-          <TextInput
+          <TextInputMask
             style={styles.input}
+            type={"cel-phone"}
+              options={{
+                maskType: 'BRL',
+                withDDD: true,
+                dddMask: '(99) '
+              }}
             onChangeText={onChange}
             value={value}
             placeholder='Phone'
+
           />
         )}
       />
