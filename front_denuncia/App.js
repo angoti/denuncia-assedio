@@ -1,11 +1,10 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Register } from './src/components/Register'
+import { View } from 'react-native';
+import { Register } from './src/components/Register';
 
-export default  ()=> {
+export default () => {
   return (
     <View>
-    <Register/>
+      <Register />
     </View>
-  )
-}
+  );
+};

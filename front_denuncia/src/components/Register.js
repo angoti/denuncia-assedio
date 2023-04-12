@@ -1,12 +1,33 @@
-import React, { useState } from 'react'
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
 
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form';
 import { TextInputMask } from 'react-native-masked-text';
 
+const onSubmit = async (data) => {
+  console.log(data);
+  try {//lembrar de mudar o ip/endereço do servidor, que é o primeiro parâmetro da função do Javascript fetch()
+    const response = await fetch('http://192.168.100.14:8080/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      alert('Dados enviados com sucesso!');
+    } else {
+      alert('Erro ao enviar os dados.');
+    }
+  } catch (error) {
+    console.error('Erro:', error);
+    alert('Erro ao enviar os dados.');
+  }
+};
+
 export function Register() {
-  const { control, handleSubmit, formState: { erros } } = useForm({})
+  const { control, handleSubmit, formState: { erros } } = useForm({});
 
   /*  valida email regex
     const { entradaValue, setEntradaValue } = useState('')
@@ -17,12 +38,12 @@ export function Register() {
   */
 
   function handleRegisterUser(data) {
-    console.log(data)
+    console.log(data);
   }
 
   return (
-    <View style={{padding: 20}}>
-    <Text style={{fontWeight: 'bold', fontSize: 24, alignSelf: 'center'}}>Cadastro Usuário</Text>
+    <View style={{ padding: 20 }}>
+      <Text style={{ fontWeight: 'bold', fontSize: 24, alignSelf: 'center' }}>Cadastro Usuário</Text>
       <Controller
         control={control}
         name="userName"
@@ -85,12 +106,12 @@ export function Register() {
       />
 
 
-      <TouchableOpacity style={styles.button} onPress={handleSubmit(handleRegisterUser)}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit(onSubmit)}>
         <Text style={styles.buttonText}>Next</Text>
       </TouchableOpacity>
 
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -115,4 +136,4 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-})
+});
