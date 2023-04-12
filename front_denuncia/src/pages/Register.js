@@ -1,13 +1,14 @@
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-
+import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { Button } from '../components/Button';
 
 import { useForm, Controller } from 'react-hook-form';
 import { TextInputMask } from 'react-native-masked-text';
 
+
 const onSubmit = async (data) => {
   console.log(data);
   try {//lembrar de mudar o ip/endereço do servidor, que é o primeiro parâmetro da função do Javascript fetch()
-    const response = await fetch('http://192.168.100.14:8080/users', {
+    const response = await fetch('http://172.17.0.1:8080/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,13 +30,6 @@ const onSubmit = async (data) => {
 export function Register() {
   const { control, handleSubmit, formState: { erros } } = useForm({});
 
-  /*  valida email regex
-    const { entradaValue, setEntradaValue } = useState('')
-  
-    const {checkEntradaValue = inputValue => {
-      setEntradaValue(inputValue.replace([^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+))
-    }}
-  */
 
   function handleRegisterUser(data) {
     console.log(data);
@@ -46,7 +40,7 @@ export function Register() {
       <Text style={{ fontWeight: 'bold', fontSize: 24, alignSelf: 'center' }}>Cadastro Usuário</Text>
       <Controller
         control={control}
-        name="userName"
+        name="name"
         render={({ field: { onChange, value } }) => (
           <TextInput
             style={styles.input}
@@ -87,7 +81,7 @@ export function Register() {
 
       <Controller
         control={control}
-        name="phone"
+        name="numberPhone"
         render={({ field: { onChange, value } }) => (
           <TextInputMask
             style={styles.input}
@@ -105,30 +99,13 @@ export function Register() {
         )}
       />
 
-
-      <TouchableOpacity style={styles.button} onPress={handleSubmit(onSubmit)}>
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
+      <Button onPress={onSubmit}/>
 
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "purple",
-    padding: 20,
-    alignItems: 'center',
-    borderRadius: 7,
-    marginTop: 20
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 15,
-    fontWeight: 'bold',
-  },
-
-
   input: {
     height: 40,
     margin: 12,

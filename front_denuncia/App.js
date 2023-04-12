@@ -1,5 +1,6 @@
 import { View } from 'react-native';
-import { Register } from './src/components/Register';
+import { Register } from './src/pages/Register';
+
 
 export default () => {
   return (
