@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 
 import { useForm, Controller } from 'react-hook-form';
@@ -31,11 +31,6 @@ const onSubmit = async (data) => {
 
 export function Register() {
   const { control, handleSubmit, formState: { erros } } = useForm({});
-
-
-  function handleRegisterUser(data) {
-    console.log(data);
-  }
 
   return (
     <View style={{ padding: 20 }}>
@@ -78,7 +73,8 @@ export function Register() {
         render={({ field: { onChange, value } }) => (
           <TextInput
             style={styles.input}
-            onChangeText={onChange}
+            type={'email'}
+            onChangeText={(onChange)}
             value={value}
             placeholder='Email'
           />
