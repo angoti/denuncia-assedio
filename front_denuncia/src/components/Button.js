@@ -5,15 +5,14 @@ import { useForm } from 'react-hook-form';
 
 
 
-export function Button({ onSubmit }) {
+export function Button({ onPress }) {
     const { control, handleSubmit, formState: { erros } } = useForm({});
     return (
-            <TouchableOpacity style={styles.button} onPress={handleSubmit(onSubmit)}>
+            <TouchableOpacity style={styles.button} onPress={handleSubmit(onPress)}>
                 <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
     )
 }
-
 
 
 const styles = StyleSheet.create({

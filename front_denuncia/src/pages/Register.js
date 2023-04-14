@@ -2,7 +2,9 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-nativ
 
 
 import { useForm, Controller } from 'react-hook-form';
+
 import { TextInputMask } from 'react-native-masked-text';
+import { Button } from '../components/Button';
 
 
 const onSubmit = async (data) => {
@@ -116,10 +118,9 @@ export function Register() {
         )}
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleSubmit(onSubmit)}>
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
 
+    <Button onPress={handleSubmit(onSubmit)} />
+    
 
 
     </View>
