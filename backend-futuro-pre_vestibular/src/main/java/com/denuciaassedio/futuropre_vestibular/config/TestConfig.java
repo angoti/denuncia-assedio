@@ -1,8 +1,8 @@
 package com.denuciaassedio.futuropre_vestibular.config;
 
+
 import java.time.Instant;
 import java.util.Arrays;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -33,11 +33,13 @@ public class TestConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		
 
 		User u1 = new User(null, "Marjorie", "marjorie@gmail.com", "23456-7800", "E2023-1");
-		User u2 = new User(null, "Clarisse", "clarisse@gmail.com", "23456-7800", "E2023-2");
+		User u2 = new User(null, "Clarisse", "clarisse@gmail.com" , "23456-7800", "E2023-2");
 
-		User u3 = new User(null, "Capitu", "capitu@gmail.com", "23456-7800", "E2023-3");
+		User u3 = new User(null, "Capitu", "capitu@gmail.com" , "23456-7800", "E2023-3");
 
 		// User u4 = new User(null, "Mr Nodody", "NOBODY@gmail.com",
 		// "23456-7800","E2023-2");

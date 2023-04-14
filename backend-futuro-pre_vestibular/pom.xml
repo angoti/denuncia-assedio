@@ -15,10 +15,11 @@
 	<name>course</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>18</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-
+	
+	<!-- dependencia incluida pelo Edson-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -44,6 +45,26 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<!--Error creating bean with name 'entityManagerFactory' defined in class path resource : Invocation of init method failed-->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>6.2.0.Final</version>
+		<type>pom</type>
+	</dependency>
+
+
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>5.6.15.Final</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		
+
+		
 
 	</dependencies>
 

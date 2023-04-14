@@ -98,7 +98,7 @@ public class Denuncia implements Serializable{
 	public void setName_author(String name_author) {
 		this.name_author = name_author;
 	}
-	
+
 	public Integer getDenunciaStatus() {
 		return denunciaStatus;
 	}
@@ -106,6 +106,7 @@ public class Denuncia implements Serializable{
 	public void setDenunciaStatus(Integer denunciaStatus) {
 		this.denunciaStatus = denunciaStatus;
 	}
+
 	
 	@Override
 	public int hashCode() {

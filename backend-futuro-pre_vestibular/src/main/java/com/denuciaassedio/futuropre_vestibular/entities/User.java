@@ -1,6 +1,7 @@
 package com.denuciaassedio.futuropre_vestibular.entities;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -19,17 +20,23 @@ import jakarta.persistence.Table;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	//DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String email;
+	
+
+
 	private String numberPhone;
 	private String class_studant;
 
 	@JsonIgnore // (lazy loading) 1 / N need associação para eviar loop
 	@OneToMany // (mappedBy = "denuncia")
 	private List<Denuncia> denuncia = new ArrayList<>();
+
 
 	public User() {
 	}
@@ -38,6 +45,7 @@ public class User implements Serializable {
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		//this.dtBirthday = dtBirthday;
 		this.numberPhone = numberPhone;
 		this.class_studant = class_studant;
 	}
@@ -81,6 +89,8 @@ public class User implements Serializable {
 	public void setClass_studant(String class_studant) {
 		this.class_studant = class_studant;
 	}
+	
+
 
 	@Override
 	public int hashCode() {
