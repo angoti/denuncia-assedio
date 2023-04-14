@@ -1,7 +1,6 @@
 package com.denuciaassedio.futuropre_vestibular.entities;
 
 import java.io.Serializable;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -20,15 +19,15 @@ import jakarta.persistence.Table;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	//DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String email;
-	
 
+	private String dtBirthday;
 
 	private String numberPhone;
 	private String class_studant;
@@ -37,15 +36,14 @@ public class User implements Serializable {
 	@OneToMany // (mappedBy = "denuncia")
 	private List<Denuncia> denuncia = new ArrayList<>();
 
-
 	public User() {
 	}
 
-	public User(Integer id, String name, String email, String numberPhone, String class_studant) {
+	public User(Integer id, String name, String email, String dtBirthday, String numberPhone, String class_studant) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		//this.dtBirthday = dtBirthday;
+		this.dtBirthday  = dtBirthday;
 		this.numberPhone = numberPhone;
 		this.class_studant = class_studant;
 	}
@@ -89,8 +87,14 @@ public class User implements Serializable {
 	public void setClass_studant(String class_studant) {
 		this.class_studant = class_studant;
 	}
-	
 
+	public String getDtBirthday() {
+		return dtBirthday;
+	}
+
+	public void setDtBirthday(String dtBirthday) {
+		this.dtBirthday = dtBirthday;
+	}
 
 	@Override
 	public int hashCode() {

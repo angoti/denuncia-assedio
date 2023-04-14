@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.denuciaassedio.futuropre_vestibular.entities.Denuncia;
 import com.denuciaassedio.futuropre_vestibular.entities.User;
 import com.denuciaassedio.futuropre_vestibular.repository.UserRepository;
 import com.denuciaassedio.futuropre_vestibular.service.exception.ResourceNotFoundException;
@@ -46,7 +47,8 @@ public class UserService {
 	}
 	
 	public void delete(Integer id) {	//verificar se esta ok
-		 repository.findById(id).get();
+		User obj  =  repository.findById(id).get();
+		repository.delete(obj);
 	}
 	
 

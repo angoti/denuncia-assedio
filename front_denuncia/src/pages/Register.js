@@ -1,5 +1,5 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-import { Button } from '../components/Button';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+
 
 import { useForm, Controller } from 'react-hook-form';
 import { TextInputMask } from 'react-native-masked-text';
@@ -38,6 +38,7 @@ export function Register() {
   return (
     <View style={{ padding: 20 }}>
       <Text style={{ fontWeight: 'bold', fontSize: 24, alignSelf: 'center' }}>Cadastro Usuário</Text>
+
       <Controller
         control={control}
         name="name"
@@ -53,14 +54,17 @@ export function Register() {
 
       <Controller
         control={control}
-        name="cpf"
+        name="dtBirthday"
         render={({ field: { onChange, value } }) => (
           <TextInputMask
             style={styles.input}
-            type={"cpf"}
+            type={"datetime"}
+            options={{
+              format: 'DD/MM/YYYY'
+            }}
             onChangeText={onChange}
             value={value}
-            placeholder='CPF'
+            placeholder='Data de nascimento'
 
           />
         )}
@@ -75,6 +79,19 @@ export function Register() {
             onChangeText={onChange}
             value={value}
             placeholder='Email'
+          />
+        )}
+      />
+
+      <Controller
+        control={control}
+        name="class_studant"
+        render={({ field: { onChange, value } }) => (
+          <TextInput
+            style={styles.input}
+            onChangeText={onChange}
+            value={value}
+            placeholder='Turma'
           />
         )}
       />
@@ -99,9 +116,14 @@ export function Register() {
         )}
       />
 
-      <Button onPress={onSubmit}/>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit(onSubmit)}>
+        <Text style={styles.buttonText}>Next</Text>
+      </TouchableOpacity>
+
+
 
     </View>
+
   );
 }
 
@@ -112,5 +134,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
+  button: {
+    backgroundColor: "purple",
+    padding: 20,
+    alignItems: 'center',
+    borderRadius: 7,
+    marginTop: 20
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: 'bold',
+  }
 
 });
