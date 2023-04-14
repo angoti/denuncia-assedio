@@ -118,10 +118,7 @@ export function Register() {
         )}
       />
 
-
-    <Button onPress={handleSubmit(onSubmit)} />
-    
-
+      <Button onPress={handleSubmit(onSubmit)} />
 
     </View>
 
@@ -134,18 +131,6 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
-  },
-  button: {
-    backgroundColor: "purple",
-    padding: 20,
-    alignItems: 'center',
-    borderRadius: 7,
-    marginTop: 20
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 15,
-    fontWeight: 'bold',
   }
 
 });
