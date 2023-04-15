@@ -1,7 +1,7 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 
-
 import { useForm, Controller } from 'react-hook-form';
+
 
 import { TextInputMask } from 'react-native-masked-text';
 import { Button } from '../components/Button';
@@ -29,8 +29,10 @@ const onSubmit = async (data) => {
   }
 };
 
+
 export function Register() {
   const { control, handleSubmit, formState: { erros } } = useForm({});
+
 
   return (
     <View style={{ padding: 20 }}>
@@ -73,7 +75,7 @@ export function Register() {
         render={({ field: { onChange, value } }) => (
           <TextInput
             style={styles.input}
-            type={'email'}
+            type={"text"}
             onChangeText={(onChange)}
             value={value}
             placeholder='Email'
@@ -87,6 +89,7 @@ export function Register() {
         render={({ field: { onChange, value } }) => (
           <TextInput
             style={styles.input}
+            maxLength={5}
             onChangeText={onChange}
             value={value}
             placeholder='Turma'
@@ -108,7 +111,7 @@ export function Register() {
             }}
             onChangeText={onChange}
             value={value}
-            placeholder='Phone'
+            placeholder='Telefone'
 
           />
         )}
