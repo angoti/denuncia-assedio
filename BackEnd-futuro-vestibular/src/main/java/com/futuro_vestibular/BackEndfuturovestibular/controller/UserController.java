@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.futuro_vestibular.BackEndfuturovestibular.entities.Denuncia;
 import com.futuro_vestibular.BackEndfuturovestibular.entities.User;
 import com.futuro_vestibular.BackEndfuturovestibular.services.UserService;
 
@@ -40,13 +41,20 @@ public class UserController {
 		User obj =  service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
+/*
 	@PostMapping
 	public ResponseEntity<User> inset(@RequestBody User obj){
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(obj.getId()).toUri(); 																												
 		return ResponseEntity.created(uri).body(obj);
+	}
+*/
+	
+	@PostMapping 
+	public ResponseEntity<User> insert(@RequestBody User obj){
+		User newObj = service.insert(obj);
+		return ResponseEntity.created(URI.create("/users"+ newObj.getId())).body(newObj);
 	}
 	
 	@PutMapping("/{id}")
