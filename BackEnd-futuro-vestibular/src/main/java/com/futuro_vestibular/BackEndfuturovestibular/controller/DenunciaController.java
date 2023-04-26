@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.futuro_vestibular.BackEndfuturovestibular.entities.Denuncia;
+import com.futuro_vestibular.BackEndfuturovestibular.entities.User;
 import com.futuro_vestibular.BackEndfuturovestibular.services.DenunciaService;
+import com.futuro_vestibular.BackEndfuturovestibular.services.UserService;
 
 
 
@@ -26,6 +27,9 @@ public class DenunciaController {
 
 	@Autowired
 	private DenunciaService service;
+
+	@Autowired
+	private UserService userService;
 
 	@GetMapping
 	public ResponseEntity<List<Denuncia>> findAll() {
@@ -47,7 +51,10 @@ public class DenunciaController {
 	}
 */
 	@PostMapping 
-	public ResponseEntity<Denuncia> insert(@RequestBody Denuncia obj){
+	public ResponseEntity<Denuncia> insert(@RequestBody Denuncia obj) {
+		User user = userService.findById(obj.getUser().getId());
+		obj.setUser(user);
+		obj.setDenunciaStatus("OPEN");
 		Denuncia newObj = service.insert(obj);
 		return ResponseEntity.created(URI.create("/denuncias"+ newObj.getId())).body(newObj);
 	}

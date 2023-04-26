@@ -35,43 +35,53 @@ public class Denuncia implements Serializable{
 	@JoinColumn(name="user_id")		//fk db
 	private User user;
 	
-	private Integer denunciaStatus;
+	private String denunciaStatus;
 	
+	/**
+	 * OPEN (1),
+	 * PROCESSING (2),
+	 * WAITING_RETURN (3),
+	 * CLOSED (4),
+	 * CANCELED (5);
+	 */
 	
-	public Denuncia() {}
+	public Denuncia() {
+		System.out.println("construtor denuncia");
+	}
 	
 	public Denuncia(Integer id, String place, Instant moment, User user, String text, String name_author) {
 		this.id = id;
-		this.setDenunciaStatus(denunciaStatus);
+		this.denunciaStatus = "OPEN";
 		this.place = place;
 		this.user = user;
 		this.text = text;
 		this.moment = moment;
 		this.name_author = name_author;
 	}
-
-
+	
+	
 	public Integer getId() {
 		return id;
 	}
-
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	
 	public User getUser() {
 		return user;
 	}
-
+	
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	
 	public String getText() {
 		return text;
 	}
-
+	
 	public void setText(String text) {
+		System.out.println("setando o texto da denuncia");
 		this.text = text;
 	}
 	
@@ -99,15 +109,14 @@ public class Denuncia implements Serializable{
 		this.name_author = name_author;
 	}
 
-	public Integer getDenunciaStatus() {
+	public String getDenunciaStatus() {
 		return denunciaStatus;
 	}
 
-	public void setDenunciaStatus(Integer denunciaStatus) {
+	public void setDenunciaStatus(String denunciaStatus) {
 		this.denunciaStatus = denunciaStatus;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

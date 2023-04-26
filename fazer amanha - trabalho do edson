@@ -1,13 +1,13 @@
 
 
-	3- procurar o valida email
-    4- inserir campo para testemunhas na denuncia (campo opcional)
-    5- arrumar compo data e hora do front para comportar data e hora
+    3- procurar validar email (front)
+
+    5- arrumar campo data e hora do front para comportar data e hora
     6- placeholder do data e hora Complaint colocar o formato input
-    7- mudar formato da data na denuncia back. como não vou fazer operação com datas uma string 
+OK  7- mudar formato da data na denuncia back. como não vou fazer operação com datas uma string 
     8- esta dando erro input da denuncia no front creio que seja devido a falta de associação com usuario e tbm a data em formato divergente
     9- como conseguir associar imediatamente o usuario com a denucia com nos inputs do front
-    10- no ambiente do postman o metodo post da erro caso falte o ID do user associado com a denuncia
+OK  10- no ambiente do postman o metodo post da erro caso falte o ID do user associado com a denuncia
 
 
     12- procurar saber sobre quebra de linha para o front informe o acontecido
