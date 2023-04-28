@@ -42,7 +42,6 @@ public class Denuncia implements Serializable{
 	 * PROCESSING (2),
 	 * WAITING_RETURN (3),
 	 * CLOSED (4),
-	 * CANCELED (5);
 	 */
 	
 	public Denuncia() {

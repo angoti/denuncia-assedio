@@ -42,14 +42,7 @@ public class DenunciaController {
 		Denuncia obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-/*
-	@PostMapping
-	public ResponseEntity<Denuncia> insert(@RequestBody Denuncia obj) {
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).body(obj);
-	}
-*/
+
 	@PostMapping 
 	public ResponseEntity<Denuncia> insert(@RequestBody Denuncia obj) {
 		User user = userService.findById(obj.getUser().getId());
