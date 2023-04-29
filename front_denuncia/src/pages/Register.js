@@ -2,10 +2,6 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 import { useForm, Controller } from 'react-hook-form';
 
-
-
-
-
 import { TextInputMask } from 'react-native-masked-text';
 import { Button } from '../components/Button';
 
