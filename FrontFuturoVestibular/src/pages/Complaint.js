@@ -27,7 +27,7 @@ const onSubmit_denuncia = async (data) => {
   }
 };
 
-export function Complaint() {
+export function Complaint({ navigation }) {
   const { control, handleSubmit, formState: { erros } } = useForm({});
 
 
@@ -95,6 +95,8 @@ export function Complaint() {
       />
 
       <Button onPress={handleSubmit(onSubmit_denuncia)} />
+
+      <Button onPress={() => navigation.goBack()} title="Go back registro" />
 
     </View>
 

@@ -29,7 +29,7 @@ const onSubmit = async (data) => {
 };
 
 
-export function Register() {
+export function Register({ navigation }) {
   const { control, handleSubmit, formState: { erros } } = useForm({});
 
 
@@ -117,6 +117,11 @@ export function Register() {
       />
 
       <Button onPress={handleSubmit(onSubmit)} />
+
+      <Button
+        onPress={() => navigation.navigate('Notifications')}
+        title="Go to Denuncia"
+      />
 
     </View>
 
