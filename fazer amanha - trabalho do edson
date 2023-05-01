@@ -10,6 +10,17 @@ OK  7- mudar formato da data na denuncia back. como não vou fazer operação co
 OK  10- no ambiente do postman o metodo post da erro caso falte o ID do user associado com a denuncia
 
 
+    {
+        verificar necessidades desses imports de acordo com documentação 
+        npm install @react-navigation/material-top-tabs
+        npm install @react-navigation/material-top-tabs
+        npm install react-native-paper
+        npm install react-native-pager-view
+
+        https://reactnavigation.org/docs/drawer-based-navigation/
+    }
+
+
     12- procurar saber sobre quebra de linha para o front informe o acontecido
      <TextInput
         placeholder="Digite sua denúncia"
