@@ -96,7 +96,10 @@ export function Complaint({ navigation }) {
 
       <Button onPress={handleSubmit(onSubmit_denuncia)} />
 
-      <Button onPress={() => navigation.goBack()} title="Go back registro" />
+      <Button
+        title="Go to Register"
+        onPress={() => navigation.navigate('Registro')}
+      />
 
     </View>
 

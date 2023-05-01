@@ -6,6 +6,8 @@ import { TextInputMask } from 'react-native-masked-text';
 import { Button } from '../components/Button';
 
 
+
+
 const onSubmit = async (data) => {
   console.log(data);
   try {//lembrar de mudar o ip/endereço do servidor, que é o primeiro parâmetro da função do Javascript fetch()
@@ -119,8 +121,8 @@ export function Register({ navigation }) {
       <Button onPress={handleSubmit(onSubmit)} />
 
       <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to Denuncia"
+        title="Go to denuncia"
+        onPress={() => navigation.navigate('Denuncia')}
       />
 
     </View>
