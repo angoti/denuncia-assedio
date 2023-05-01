@@ -12,8 +12,8 @@ export default () => {
 
   return (
     <NavigationContainer>
-      {/*<MyDrawer />*/}
-      <MyStack />
+      <MyDrawer />
+      {/*<MyStack />*/}
     </NavigationContainer>
   );
 };

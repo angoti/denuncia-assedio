@@ -3,3 +3,4 @@ module.exports = {
   plugins: ['react-native-reanimated/plugin'],
 };
 
+//https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/#babel-plugin
