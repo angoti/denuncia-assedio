@@ -10,6 +10,7 @@ const Stack = createStackNavigator();
 export function MyStack() {
   return (
     <Stack.Navigator>
+    
       <Stack.Screen name="Registro" component={Register} />
       <Stack.Screen name="Denuncia" component={Complaint} />
 
