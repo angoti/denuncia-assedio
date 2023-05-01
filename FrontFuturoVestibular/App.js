@@ -13,7 +13,7 @@ export default () => {
   return (
     <NavigationContainer>
       <MyDrawer />
-      {/*<MyStack />*/}
+      <MyStack />
     </NavigationContainer>
   );
 };
