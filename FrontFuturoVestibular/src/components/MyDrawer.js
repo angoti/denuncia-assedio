@@ -8,11 +8,11 @@ const Drawer = createDrawerNavigator();
 
 export function MyDrawer() {
   return (
-    <Drawer.Navigator useLegacyImplementation>
+    <Drawer.Navigator>
 
       <Drawer.Screen name="Registro" component={Register} />
       <Drawer.Screen name="Denuncia" component={Complaint} />
-      
+
     </Drawer.Navigator>
   );
 }
