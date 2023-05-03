@@ -117,13 +117,23 @@ export function Register({ navigation }) {
           />
         )}
       />
-
+{/*
       <Button onPress={handleSubmit(onSubmit)} />
 
       <Button
         title="Go to denuncia"
         onPress={() => navigation.navigate('Denuncia')}
       />
+*/}
+
+      <Button
+        title="Gravar e ir para denúncia"
+        onPress={() => {
+          handleSubmit(onSubmit);
+          navigation.navigate('Denuncia');
+        }}
+      />
+
 
     </View>
 

@@ -93,12 +93,21 @@ export function Complaint({ navigation }) {
           />
         )}
       />
-
+      {/*
       <Button onPress={handleSubmit(onSubmit_denuncia)} />
 
       <Button
         title="Go to Register"
         onPress={() => navigation.navigate('Registro')}
+      />
+*/}
+
+      <Button
+        title="Gravar denúncia"
+        onPress={() => {
+          handleSubmit(onSubmit_denuncia);
+          navigation.navigate('Registro');
+        }}
       />
 
     </View>
