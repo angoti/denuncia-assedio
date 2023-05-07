@@ -117,22 +117,33 @@ export function Register({ navigation }) {
           />
         )}
       />
-{/*
-      <Button onPress={handleSubmit(onSubmit)} />
+{/* 
+ABAIXO METODO USANDO O COMPONENT BUTTON MAIS IDEAL POIS O MESMO BITÃO FAZ TANTO A 
+MUDANÇA DE TELA QUANTO O SAVE DOS DADOS, CONTUDO O SALVAMENTO NÃO ACONTECE NEM MESMO 
+O ACIONAMENTO DA FUNÇÃO ONSUBMIT. faça os ajustes para alternar entre os metodos 
 
+ */}
       <Button
-        title="Go to denuncia"
-        onPress={() => navigation.navigate('Denuncia')}
-      />
-*/}
-
-      <Button
-        title="Gravar e ir para denúncia"
         onPress={() => {
           handleSubmit(onSubmit);
           navigation.navigate('Denuncia');
         }}
       />
+
+
+      {/*
+TESTE COM 2 BOTÕES NÃO USUAL SEM UTILIZAÇÃO DO COMPONENT BUTTON CONTUDO O NAVIGATE 
+NÃO FUNCIONA
+
+   <Button title="gravar" onPress={handleSubmit(onSubmit)} />
+
+      <Button 
+        title=" ir para denúncia"
+        onPress={() => {
+          navigation.navigate('Denuncia');
+        }}
+      /> 
+*/}
 
 
     </View>

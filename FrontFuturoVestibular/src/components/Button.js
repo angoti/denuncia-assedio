@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 
 
 
-export function Button({ onPress }) {
+  export function Button({ onPress }) {
     const { control, handleSubmit, formState: { erros } } = useForm({});
     return (
             <TouchableOpacity style={styles.button} onPress={handleSubmit(onPress)}>

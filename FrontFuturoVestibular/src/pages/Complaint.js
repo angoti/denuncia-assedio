@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
 import { Button } from '../components/Button';
 
 import { useForm, Controller } from 'react-hook-form';
@@ -93,6 +93,7 @@ export function Complaint({ navigation }) {
           />
         )}
       />
+
       {/*
       <Button onPress={handleSubmit(onSubmit_denuncia)} />
 
@@ -100,15 +101,14 @@ export function Complaint({ navigation }) {
         title="Go to Register"
         onPress={() => navigation.navigate('Registro')}
       />
+
+
+
 */}
 
-      <Button
-        title="Gravar denúncia"
-        onPress={() => {
-          handleSubmit(onSubmit_denuncia);
-          navigation.navigate('Registro');
-        }}
-      />
+<Button onPress={handleSubmit(onSubmit_denuncia)} />
+
+
 
     </View>
 
