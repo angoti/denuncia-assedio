@@ -46,9 +46,9 @@ public class TestConfig implements CommandLineRunner {
 
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
-		Denuncia d1 = new Denuncia(null, "Refeitorio", Instant.parse("2023-02-20T19:53:07Z"), u3, "TEXT AREA PARA EXPOR DENUNCIA d1", "Author1");
-		Denuncia d2 = new Denuncia(null, "Sala", Instant.parse("2023-01-12T18:12:07Z"), u1, "TEXT AREA PARA EXPOR DENUNCIA d2", "Author2");
-		Denuncia d3 = new Denuncia(null, "Corredor", Instant.parse("2023-03-06T20:45:07Z"), u2, "TEXT AREA PARA EXPOR DENUNCIA d3", "Author3");
+		Denuncia d1 = new Denuncia(null, "Refeitorio", "07/05/2021 17:23", u3, "TEXT AREA PARA EXPOR DENUNCIA d1", "Author1");
+		Denuncia d2 = new Denuncia(null, "Sala", "07/06/2021 17:23", u1, "TEXT AREA PARA EXPOR DENUNCIA d2", "Author2");
+		Denuncia d3 = new Denuncia(null, "Corredor", "04/03/2020 17:23", u2, "TEXT AREA PARA EXPOR DENUNCIA d3", "Author3");
 
 
 		denunciaRepository.saveAll(Arrays.asList(d1, d2, d3));

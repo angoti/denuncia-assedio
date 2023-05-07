@@ -28,8 +28,8 @@ public class Denuncia implements Serializable{
 	private String place;
 	private String name_author;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
-	private Instant moment;
+	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy'T'HH:mm'Z'", timezone = "GMT")
+	private String moment;
 	
 	@OneToOne	//1 denuncia / 1 user
 	@JoinColumn(name="user_id")		//fk db
@@ -48,7 +48,7 @@ public class Denuncia implements Serializable{
 		System.out.println("construtor denuncia");
 	}
 	
-	public Denuncia(Integer id, String place, Instant moment, User user, String text, String name_author) {
+	public Denuncia(Integer id, String place, String moment, User user, String text, String name_author) {
 		this.id = id;
 		this.denunciaStatus = "OPEN";
 		this.place = place;
@@ -92,11 +92,11 @@ public class Denuncia implements Serializable{
 		this.place = place;
 	}
 	
-	public Instant getMoment() {
+	public String getMoment() {
 		return moment;
 	}
 
-	public void setMoment(Instant moment) {
+	public void setMoment(String moment) {
 		this.moment = moment;
 	}
 
