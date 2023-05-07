@@ -72,6 +72,9 @@ public class Denuncia implements Serializable{
 	}
 	
 	public User getUser() {
+		if(user.getId() == null) {
+			throw new IllegalArgumentException("User da entidade Denuncia esta null");
+		}
 		return user;
 	}
 	
