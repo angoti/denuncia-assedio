@@ -10,8 +10,8 @@ const Stack = createStackNavigator();
 
 export function MyStack() {
   return (
-    <Stack.Navigator>
-     
+    <Stack.Navigator initialRouteName='Registro'>
+    
       <Stack.Screen name="Registro" component={Register} />
       <Stack.Screen name="Denuncia" component={Complaint} />
 

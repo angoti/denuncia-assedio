@@ -5,11 +5,10 @@ import { useForm } from 'react-hook-form';
 
 
 
-  export function Button({ onPress }) {
-    const { control, handleSubmit, formState: { erros } } = useForm({});
+  export function Button( props ) {
     return (
-            <TouchableOpacity style={styles.button} onPress={handleSubmit(onPress)}>
-                <Text style={styles.buttonText}>Next</Text>
+            <TouchableOpacity style={styles.button} onPress={props.teste}>
+                <Text style={styles.buttonText}>Nexti</Text>
             </TouchableOpacity>
     )
 }

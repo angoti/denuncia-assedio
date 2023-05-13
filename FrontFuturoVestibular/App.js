@@ -1,22 +1,22 @@
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { MyStack } from './src/components/MyStack';
-import { MyDrawer } from './src/components/MyDrawer';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { MyStack } from './src/navigators/MyStack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 
 export default () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Menu" component={MyDrawer} />
+      <Drawer.Navigator>
+        <Drawer.Screen name="Menu" component={MyStack} />
 
-      </Stack.Navigator>
+      </Drawer.Navigator>
     </NavigationContainer>
 
   );
 };
+

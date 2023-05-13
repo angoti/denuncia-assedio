@@ -5,35 +5,31 @@ import { useForm, Controller } from 'react-hook-form';
 import { TextInputMask } from 'react-native-masked-text';
 import { Button } from '../components/Button';
 
-
-
-
-const onSubmit = async (data) => {
-  console.log(data);
-  try {//lembrar de mudar o ip/endereço do servidor, que é o primeiro parâmetro da função do Javascript fetch()
-    const response = await fetch('http://172.17.0.1:8080/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      alert('Dados enviados com sucesso!');
-    } else {
-      alert('Erro ao enviar os dados.');
-    }
-  } catch (error) {
-    console.error('Erro:', error);
-    alert('Erro ao enviar os dados.');
-  }
-};
-
-
 export function Register({ navigation }) {
   const { control, handleSubmit, formState: { erros } } = useForm({});
-
+  
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {//lembrar de mudar o ip/endereço do servidor, que é o primeiro parâmetro da função do Javascript fetch()
+      const response = await fetch('http://172.17.0.1:8080/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (response.ok) {
+        alert('Dados enviados com sucesso!');
+        navigation.navigate('Denuncia')
+      } else {
+        alert('Erro ao enviar os dados.');
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+      alert('Erro ao enviar os dados.');
+    }
+  };
 
   return (
     <View style={{ padding: 20 }}>
@@ -117,25 +113,22 @@ export function Register({ navigation }) {
           />
         )}
       />
-{/* 
-ABAIXO METODO USANDO O COMPONENT BUTTON MAIS IDEAL POIS O MESMO BITÃO FAZ TANTO A 
-MUDANÇA DE TELA QUANTO O SAVE DOS DADOS, CONTUDO O SALVAMENTO NÃO ACONTECE NEM MESMO 
-O ACIONAMENTO DA FUNÇÃO ONSUBMIT. faça os ajustes para alternar entre os metodos 
 
- */}
-      <Button
-        onPress={() => {
-          handleSubmit(onSubmit);
-          navigation.navigate('Denuncia');
-        }}
-      />
+
+
+      <Button teste={handleSubmit(onSubmit)} />
 
 
       {/*
 TESTE COM 2 BOTÕES NÃO USUAL SEM UTILIZAÇÃO DO COMPONENT BUTTON CONTUDO O NAVIGATE 
 NÃO FUNCIONA
 
-   <Button title="gravar" onPress={handleSubmit(onSubmit)} />
+         <Button
+        onPress={() => {
+          console.log('submetendo form ....')
+          handleSubmit(onSubmit)
+        }}
+      />
 
       <Button 
         title=" ir para denúncia"
