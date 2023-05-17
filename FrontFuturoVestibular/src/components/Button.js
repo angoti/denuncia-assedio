@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
   export function Button( props ) {
     return (
             <TouchableOpacity style={styles.button} onPress={props.teste}>
-                <Text style={styles.buttonText}>Nexti</Text>
+                <Text style={styles.buttonText}>Next</Text>
             </TouchableOpacity>
     )
 }
