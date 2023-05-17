@@ -1,155 +1,119 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-
-import { useForm, Controller } from 'react-hook-form';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 import { TextInputMask } from 'react-native-masked-text';
-import { Button } from '../components/Button';
 
-export function Register({ navigation }) {
-  const { control, handleSubmit, formState: { erros } } = useForm({});
-  
-  const onSubmit = async (data) => {
-    console.log(data);
-    try {//lembrar de mudar o ip/endereço do servidor, que é o primeiro parâmetro da função do Javascript fetch()
-      const response = await fetch('http://172.17.0.1:8080/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-  
-      if (response.ok) {
-        alert('Dados enviados com sucesso!');
-        navigation.navigate('Denuncia')
-      } else {
-        alert('Erro ao enviar os dados.');
-      }
-    } catch (error) {
-      console.error('Erro:', error);
-      alert('Erro ao enviar os dados.');
+export const Register = ({ navigation }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [class_studant, setClassStudant] = useState('');
+  const [numberPhone, setNumberPhone] = useState('');
+  const [errors, setErrors] = useState({});
+
+  const validateEmail = (email) => {
+    const emailRegex = /^\S+@\S+$/i;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = () => {
+    let formErrors = {};
+
+    if (!name) {
+      formErrors.name = 'Nome é obrigatório';
+    }
+
+    if (!email) {
+      formErrors.email = 'Email é obrigatório';
+    } else if (!validateEmail(email)) {
+      formErrors.email = 'Email inválido';
+    }
+
+    if (!class_studant) {
+      formErrors.class_studant = 'Turma é obrigatória';
+    }
+
+    if (!numberPhone) {
+      formErrors.numberPhone = 'Número de telefone é obrigatório';
+    }
+
+    setErrors(formErrors);
+
+    if (Object.keys(formErrors).length === 0) {
+      // Restante do código para envio do formulário
+      console.log('Formulário válido. Dados enviados:', { name, email, class_studant, numberPhone });
+      navigation.navigate('Denuncia');
     }
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text style={{ fontWeight: 'bold', fontSize: 24, alignSelf: 'center' }}>Cadastro Usuário</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Cadastro Usuário</Text>
 
-      <Controller
-        control={control}
-        name="name"
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            onChangeText={onChange}
-            value={value}
-            placeholder='Name'
-          />
-        )}
+      <TextInput
+        style={styles.input}
+        maxLength={30}
+        onChangeText={(text) => setName(text)}
+        value={name}
+        placeholder='Nome'
       />
+      {errors.name && <Text style={styles.error}>{errors.name}</Text>}
 
-      <Controller
-        control={control}
-        name="dtBirthday"
-        render={({ field: { onChange, value } }) => (
-          <TextInputMask
-            style={styles.input}
-            type={"datetime"}
-            options={{
-              format: 'DD/MM/YYYY'
-            }}
-            onChangeText={onChange}
-            value={value}
-            placeholder='Data de nascimento'
-
-          />
-        )}
+      <TextInput
+        style={styles.input}
+        onChangeText={(text) => setEmail(text)}
+        value={email}
+        placeholder='Email'
       />
+      {errors.email && <Text style={styles.error}>{errors.email}</Text>}
 
-      <Controller
-        control={control}
-        name="email"
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            type={"text"}
-            onChangeText={(onChange)}
-            value={value}
-            placeholder='Email'
-          />
-        )}
+      <TextInput
+        style={styles.input}
+        maxLength={5}
+        onChangeText={(text) => setClassStudant(text)}
+        value={class_studant}
+        placeholder='Turma'
       />
+      {errors.class_studant && <Text style={styles.error}>{errors.class_studant}</Text>}
 
-      <Controller
-        control={control}
-        name="class_studant"
-        render={({ field: { onChange, value } }) => (
-          <TextInput
-            style={styles.input}
-            maxLength={5}
-            onChangeText={onChange}
-            value={value}
-            placeholder='Turma'
-          />
-        )}
-      />
-
-      <Controller
-        control={control}
-        name="numberPhone"
-        render={({ field: { onChange, value } }) => (
-          <TextInputMask
-            style={styles.input}
-            type={"cel-phone"}
-            options={{
-              maskType: 'BRL',
-              withDDD: true,
-              dddMask: '(99) '
-            }}
-            onChangeText={onChange}
-            value={value}
-            placeholder='Telefone'
-
-          />
-        )}
-      />
-
-
-
-      <Button teste={handleSubmit(onSubmit)} />
-
-
-      {/*
-TESTE COM 2 BOTÕES NÃO USUAL SEM UTILIZAÇÃO DO COMPONENT BUTTON CONTUDO O NAVIGATE 
-NÃO FUNCIONA
-
-         <Button
-        onPress={() => {
-          console.log('submetendo form ....')
-          handleSubmit(onSubmit)
+      <TextInputMask
+        style={styles.input}
+        type={"cel-phone"}
+        options={{
+          maskType: 'BRL',
+          withDDD: true,
+          dddMask: '(99) '
         }}
+        onChangeText={(text) => setNumberPhone(text)}
+        value={numberPhone}
+        placeholder='Telefone'
       />
+      {errors.numberPhone && <Text style={styles.error}>{errors.numberPhone}</Text>}
 
-      <Button 
-        title=" ir para denúncia"
-        onPress={() => {
-          navigation.navigate('Denuncia');
-        }}
-      /> 
-*/}
-
-
+      <Button title="Submit" onPress={handleSubmit} />
     </View>
-
   );
-}
+};
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    alignSelf: 'center',
+    marginBottom: 20,
+  },
   input: {
     height: 40,
-    margin: 12,
+    marginVertical: 8,
     borderWidth: 1,
     padding: 10,
-  }
-
+  },
+  error: {
+    color: 'red',
+    marginTop: 5,
+  },
 });
+
+

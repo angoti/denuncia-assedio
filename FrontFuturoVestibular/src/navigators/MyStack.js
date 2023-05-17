@@ -2,6 +2,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { Register } from '../pages/Register';
 import { Complaint } from '../pages/Complaint';
+import { Teste } from '../pages/Teste';
+
+
 
 
 
@@ -14,6 +17,9 @@ export function MyStack() {
     
       <Stack.Screen name="Registro" component={Register} />
       <Stack.Screen name="Denuncia" component={Complaint} />
+ 
+
+
 
     </Stack.Navigator>
   );
