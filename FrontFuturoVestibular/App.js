@@ -12,7 +12,7 @@ export default () => {
   return (
     <NavigationContainer>
       <Drawer.Navigator>
-        <Drawer.Screen name=" " component={MyStack} />
+        <Drawer.Screen name="Menu" component={MyStack} />
 
       </Drawer.Navigator>
     </NavigationContainer>
