@@ -2,7 +2,16 @@ import React from "react";
 import { Text, StyleSheet, View, Button } from 'react-native';
 
 
-export function UserOption() {
+export function UserOption({ navigation }) {
+
+    const handleSubmit = () => {
+        navigation.navigate('Registro');
+    }
+
+    const _handleSubmit = () => {
+        navigation.navigate('Denuncia');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.containerText}>
@@ -13,10 +22,10 @@ export function UserOption() {
             </View>
             <View style={styles.containerButton} >
                 <View style={styles.buttonContainer}>
-                    <Button title="Anonima" />
+                    <Button title="Anonima" onPress={_handleSubmit}/>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Button title="Identificada" />
+                    <Button title="Identificada" onPress={handleSubmit} />
                 </View>
             </View>
 
@@ -33,7 +42,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
     },
-    containerText:{
+    containerText: {
         marginBottom: 150,
     },
     text: {
