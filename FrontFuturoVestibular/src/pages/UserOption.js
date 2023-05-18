@@ -4,12 +4,8 @@ import { Text, StyleSheet, View, Button } from 'react-native';
 
 export function UserOption({ navigation }) {
 
-    const handleSubmit = () => {
-        navigation.navigate('Registro');
-    }
-
-    const _handleSubmit = () => {
-        navigation.navigate('Denuncia');
+    const handleNavigation = (screen) => {
+        navigation.navigate(screen);
     }
 
     return (
@@ -22,10 +18,10 @@ export function UserOption({ navigation }) {
             </View>
             <View style={styles.containerButton} >
                 <View style={styles.buttonContainer}>
-                    <Button title="Anonima" onPress={_handleSubmit}/>
+                    <Button title="Anonima" onPress={() => handleNavigation('Denuncia')}/>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Button title="Identificada" onPress={handleSubmit} />
+                    <Button title="Identificada" onPress={() => handleNavigation('Registro')} />
                 </View>
             </View>
 
