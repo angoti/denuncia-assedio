@@ -1,7 +1,13 @@
 import React from "react";
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, Button } from 'react-native';
 
-export function ComplaintBooklet() {
+export function ComplaintBooklet({navigation}) {
+
+    const handleNavigation = (screen) => {
+        navigation.navigate(screen);
+    }
+
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Olá, </Text>
@@ -21,6 +27,10 @@ export function ComplaintBooklet() {
             <Text style={styles.listItem}>
                 &bull; Havendo necessidade o administrador entrará em contato pelo chat.
             </Text>
+
+            <View style={styles.buttonContainer}>
+                <Button title="Next" onPress={() => handleNavigation('Tipo de denuncia')} />
+            </View>
         </View>
 
 

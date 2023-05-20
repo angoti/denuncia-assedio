@@ -1,64 +1,38 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native';
-import { Button } from '../components/Button';
+import {View, Text, TextInput, StyleSheet, Button} from 'react-native';
+import {useForm, Controller} from 'react-hook-form';
+import {TextInputMask} from 'react-native-masked-text';
 
-import { useForm, Controller } from 'react-hook-form';
-
-import { TextInputMask } from 'react-native-masked-text';
-
-const onSubmit_denuncia = async (data) => {
-  console.log(data);
-  try {
-    const response = await fetch('http://172.17.0.1:8080/denuncias', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      alert('Dados enviados com sucesso!');
-    } else {
-      alert('Erro ao enviar os dados.');
-    }
-  } catch (error) {
-    console.error('Erro:', error);
-    alert('Erro ao enviar os dados.');
-  }
-};
-
-export function Complaint({ navigation }) {
-  const { control, handleSubmit, formState: { erros } } = useForm({});
-
-
-
+export function Complaint({navigation, route}) {
+  const {control, handleSubmit} = useForm({});
 
   return (
-    <View style={{ padding: 20 }}>
-
-      <Text style={{ fontWeight: 'bold', fontSize: 24, alignSelf: 'center' }}>Informe o acontecido</Text>
+    <View style={{padding: 20}}>
+      <Text style={{fontWeight: 'bold', fontSize: 24, alignSelf: 'center'}}>
+        Informe o acontecido
+      </Text>
 
       <Controller
         control={control}
         name="text"
-        render={({ field: { onChange, value } }) => (
+        render={({field: {onChange, value}}) => (
           <TextInput
-            style={[styles.input, { height: 120 }]}
+            multiline
+            style={[styles.input, {height: 120}]}
             onChangeText={onChange}
             value={value}
-            placeholder='Informe o acontecido'
+            placeholder="Informe o acontecido"
           />
         )}
       />
       <Controller
         control={control}
         name="place"
-        render={({ field: { onChange, value } }) => (
+        render={({field: {onChange, value}}) => (
           <TextInput
             style={styles.input}
             onChangeText={onChange}
             value={value}
-            placeholder='Lugar onde aconteceu'
+            placeholder="Lugar onde aconteceu"
           />
         )}
       />
@@ -66,17 +40,16 @@ export function Complaint({ navigation }) {
       <Controller
         control={control}
         name="moment"
-        render={({ field: { onChange, value } }) => (
+        render={({field: {onChange, value}}) => (
           <TextInputMask
             style={styles.input}
-            type={"datetime"}
+            type={'datetime'}
             options={{
               format: 'DD/MM/YYYY HH:mm',
             }}
             onChangeText={onChange}
             value={value}
             placeholder="DD/MM/YYYY HH:mm"
-
           />
         )}
       />
@@ -84,34 +57,23 @@ export function Complaint({ navigation }) {
       <Controller
         control={control}
         name="name_author"
-        render={({ field: { onChange, value } }) => (
+        render={({field: {onChange, value}}) => (
           <TextInput
             style={styles.input}
             onChangeText={onChange}
             value={value}
-            placeholder='Nome do agressor / Autor'
+            placeholder="Nome do autor - agressor"
           />
         )}
       />
 
-      {/*
-      <Button onPress={handleSubmit(onSubmit_denuncia)} />
-
       <Button
-        title="Go to Register"
-        onPress={() => navigation.navigate('Registro')}
+        title="Submeter"
+        onPress={handleSubmit(data =>
+          navigation.navigate('Confirmation', data),
+        )}
       />
-
-
-
-*/}
-
-<Button onPress={handleSubmit(onSubmit_denuncia)} />
-
-
-
     </View>
-
   );
 }
 
@@ -122,6 +84,4 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
   },
-
 });
-

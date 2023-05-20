@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BackEndFuturoVestibularApplication<BackEnd-futuro-vestibular>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.futuro_vestibular.BackEndfuturovestibular.BackEndFuturoVestibularApplication",
+            "projectName": "BackEnd-futuro-vestibular",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,17 +1,12 @@
 package com.futuro_vestibular.BackEndfuturovestibular.entities;
 
 import java.io.Serializable;
-
-
 import java.util.Objects;
-
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,10 +25,6 @@ public class Denuncia implements Serializable{
 	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy'T'HH:mm'Z'", timezone = "GMT")
 	private String moment;
 	
-	@OneToOne	
-	@JoinColumn(name="user_id")		
-	private User user;
-	
 	private String denunciaStatus;
 	
 	/**
@@ -51,12 +42,6 @@ public class Denuncia implements Serializable{
 		this.id = id;
 		this.denunciaStatus = "OPEN";
 		this.place = place;
-		
-	    if (user.getId() != null) {
-	        this.user = user;
-	    } else {
-	        throw new IllegalArgumentException("O usuário deve possuir um id válido.");
-	    }
 		this.text = text;
 		this.moment = moment;
 		this.name_author = name_author;
@@ -69,17 +54,6 @@ public class Denuncia implements Serializable{
 	
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	
-	public User getUser() {
-		if(user.getId() == null) {
-			throw new IllegalArgumentException("User da entidade Denuncia esta null");
-		}
-		return user;
-	}
-	
-	public void setUser(User user) {
-		this.user = user;
 	}
 	
 	public String getText() {
