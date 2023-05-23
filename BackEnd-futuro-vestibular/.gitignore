@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/react,reactnative,java,intellij,visualstudiocode,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,reactnative,java,intellij,visualstudiocode,eclipse
 
+target/
+
 ### Eclipse ###
 .metadata
 bin/
