@@ -1,11 +1,14 @@
-import { View, Text, Button, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { Button } from '../components/Button'
 import { useState } from 'react';
+
 
 export function Confirmation({ route }) {
   const [enviando, setEnviando] = useState(false);
   const data = route.params;
 
   const onSubmit_denuncia = async () => {
+
     console.log(data);
     setEnviando(true);
     try {
@@ -32,17 +35,30 @@ export function Confirmation({ route }) {
 
   return (
     <View style={{ padding: 20 }}>
-      {enviando && <ActivityIndicator size="large" color="#00ff00" />}
-      <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Confirmação</Text>
-
-      <View style={{ marginTop: 10 }}>
-        <Text>Onde ocorreu: {data.text}</Text>
-        <Text>Onde ocorreu: {data.place}</Text>
-        <Text>Quando ocorreu: {data.moment}</Text>
-        <Text>Nome do autor: {data.name_author}</Text>
+      <View>
+        {enviando && <ActivityIndicator size="large" color="#00ff00" />}
+        <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Confirmação</Text>
       </View>
 
-      <Button title="Confirmar" onPress={onSubmit_denuncia} />
+      <View style={{ marginTop: 10 }}>
+        <Text style={{ fontWeight: "bold", fontSize: 15 }}>Descrição do fato:</Text><Text>{data.text}</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 15 }}>Lugar do ocorrido: </Text><Text>{data.place}</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 15 }}>Hora aproximada: </Text><Text>{data.moment}</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 15 }}>Nome do acusado: </Text><Text>{data.name_author}</Text>
+      </View>
+
+      <View style={styles.viewButton}>
+        <Button title="Concluir"  onPress={onSubmit_denuncia} />
+      </View>
+
+
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  viewButton: {
+    marginTop: 75,
+  }
+});
+

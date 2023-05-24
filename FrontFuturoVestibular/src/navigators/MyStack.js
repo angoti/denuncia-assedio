@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 export function MyStack() {
   return (
-    <Stack.Navigator initialRouteName='Denuncia'>
+    <Stack.Navigator initialRouteName='Cartilha de Denuncia'>
       <Stack.Screen name="Cartilha de Denuncia" component={ComplaintBooklet} />
       <Stack.Screen name="Tipo de denuncia" component={UserOption} />
       <Stack.Screen name="Registro" component={Register} />

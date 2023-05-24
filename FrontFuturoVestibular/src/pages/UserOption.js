@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
+import { Button } from '../components/Button'
 
 
 export function UserOption({ navigation }) {

@@ -1,4 +1,5 @@
-import {View, Text, TextInput, StyleSheet, Button} from 'react-native';
+import {View, Text, TextInput, StyleSheet} from 'react-native';
+import { Button } from "../components/Button"
 import {useForm, Controller} from 'react-hook-form';
 import {TextInputMask} from 'react-native-masked-text';
 
@@ -62,7 +63,7 @@ export function Complaint({navigation, route}) {
             style={styles.input}
             onChangeText={onChange}
             value={value}
-            placeholder="Nome do autor - agressor"
+            placeholder="Nome do acusado"
           />
         )}
       />
