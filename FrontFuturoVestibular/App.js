@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { MyStack } from './src/navigators/MyStack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+//import { createStackNavigator } from '@react-navigation/stack';
+
 
 const Drawer = createDrawerNavigator();
 
