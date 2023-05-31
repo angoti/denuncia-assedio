@@ -38,7 +38,7 @@ public class Denuncia implements Serializable{
 		System.out.println("construtor denuncia");
 	}
 	
-	public Denuncia(Integer id, String place, String moment, User user, String text, String name_author) {
+	public Denuncia(Integer id, String place, String moment, String text, String name_author) {
 		this.id = id;
 		this.denunciaStatus = "OPEN";
 		this.place = place;
@@ -46,7 +46,6 @@ public class Denuncia implements Serializable{
 		this.moment = moment;
 		this.name_author = name_author;
 	}
-	
 	
 	public Integer getId() {
 		return id;
