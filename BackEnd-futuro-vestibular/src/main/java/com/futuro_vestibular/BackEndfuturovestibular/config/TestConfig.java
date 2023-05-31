@@ -1,7 +1,7 @@
 package com.futuro_vestibular.BackEndfuturovestibular.config;
 
 
-import java.time.Instant;
+// import java.time.Instant;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.futuro_vestibular.BackEndfuturovestibular.entities.Denuncia;
+// import com.futuro_vestibular.BackEndfuturovestibular.entities.Denuncia;
 import com.futuro_vestibular.BackEndfuturovestibular.entities.User;
 import com.futuro_vestibular.BackEndfuturovestibular.repositories.DenunciaRepository;
 import com.futuro_vestibular.BackEndfuturovestibular.repositories.UserRepository;
@@ -46,12 +46,12 @@ public class TestConfig implements CommandLineRunner {
 
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
-		Denuncia d1 = new Denuncia(null, "Refeitorio", "07/05/2021 17:23", u3, "TEXT AREA PARA EXPOR DENUNCIA d1", "Author1");
-		Denuncia d2 = new Denuncia(null, "Sala", "07/06/2021 17:23", u1, "TEXT AREA PARA EXPOR DENUNCIA d2", "Author2");
-		Denuncia d3 = new Denuncia(null, "Corredor", "04/03/2020 17:23", u2, "TEXT AREA PARA EXPOR DENUNCIA d3", "Author3");
+		// Denuncia d1 = new Denuncia(null, "Refeitorio", "07/05/2021 17:23", u3, "TEXT AREA PARA EXPOR DENUNCIA d1", "Author1");
+		// Denuncia d2 = new Denuncia(null, "Sala", "07/06/2021 17:23", u1, "TEXT AREA PARA EXPOR DENUNCIA d2", "Author2");
+		// Denuncia d3 = new Denuncia(null, "Corredor", "04/03/2020 17:23", u2, "TEXT AREA PARA EXPOR DENUNCIA d3", "Author3");
 
 
-		denunciaRepository.saveAll(Arrays.asList(d1, d2, d3));
+		// denunciaRepository.saveAll(Arrays.asList(d1, d2, d3));
 
 	}
 
