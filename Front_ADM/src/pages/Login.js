@@ -1,7 +1,13 @@
-import { View, StyleSheet, Text, TextInput, Button } from 'react-native'
+import { View, StyleSheet, Text, TextInput } from 'react-native'
+import { Button } from '../components/Button'
 import React, { useState } from 'react';
 
 export function Login() {
+
+    const handleSubmit = () => {
+
+  };
+
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
@@ -27,7 +33,7 @@ export function Login() {
             />
             {errors.password && <Text style={styles.error}>{errors.password}</Text>}
 
-            <Button title="Submit"/>
+            <Button title="Entrar" onPress={handleSubmit} />
 
         </View>
     );
