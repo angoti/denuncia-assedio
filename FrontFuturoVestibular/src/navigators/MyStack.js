@@ -40,3 +40,7 @@ export function MyStack() {
     </Stack.Navigator>
   );
 }
+
+
+
+
