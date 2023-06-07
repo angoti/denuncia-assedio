@@ -1,4 +1,4 @@
-package com.front_adm;
+package br.edu.futuro_vestibular;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
