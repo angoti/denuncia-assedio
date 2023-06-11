@@ -149,6 +149,9 @@ android {
 }
 
 dependencies {
+    // For animated GIF support --EDSON
+    implementation 'com.facebook.fresco:animated-gif:2.6.0'
+
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
@@ -168,3 +171,6 @@ dependencies {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+
+// Adicione esta linha no fim do arquivo --EDSON
+apply plugin: 'com.google.gms.google-services' // <--- this should be the last line
