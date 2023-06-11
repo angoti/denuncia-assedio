@@ -5,9 +5,9 @@ import { NewLogin } from './src/pages/NewLogin';
 
 export default () => {
   return (
-
-  <Login/>
-  //<NewLogin/>
+  <NewLogin/>
+  //<Login/>
+  
 
   )
 };
