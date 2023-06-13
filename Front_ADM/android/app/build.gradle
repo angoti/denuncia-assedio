@@ -172,7 +172,8 @@ dependencies {
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 
-// Adicione esta linha no fim do arquivo --EDSON
-apply plugin: 'com.google.gms.google-services' // <--- this should be the last line
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+// Adicione esta linha no fim do arquivo --EDSON
+apply plugin: 'com.google.gms.google-services' // <--- this should be the last line
