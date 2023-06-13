@@ -6,8 +6,8 @@ import {Header} from 'react-native/Libraries/NewAppScreen';
 
 export default () => {
   return (
-  //<Header/>
-  <Login/>
+  <Header/>
+  //<Login/>
   
 
   )
