@@ -3,9 +3,10 @@ import {
   GoogleSignin,
   GoogleSigninButton,
 } from '@react-native-google-signin/google-signin';
-import {useState} from 'react';
-import {View} from 'react-native';
-import {styles} from '../styles/styles';
+import { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Text } from 'react-native-paper';
+
 
 GoogleSignin.configure({
   webClientId:
@@ -29,13 +30,13 @@ export const getCurrentUserInfo = async () => {
   }
 };
 
-function SignInScreen({signIn}) {
+export default function SignInScreen({ signIn }) {
   const [isSigninInProgress, setIsSigninInProgress] = useState(false);
 
   async function onGoogleButtonPress() {
     setIsSigninInProgress(true);
     // Get the users ID token
-    const {idToken} = await GoogleSignin.signIn();
+    const { idToken } = await GoogleSignin.signIn();
 
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
@@ -45,15 +46,35 @@ function SignInScreen({signIn}) {
   }
 
   return (
-    <View>
-      <GoogleSigninButton
-        size={GoogleSigninButton.Size.Icon}
-        color={GoogleSigninButton.Color.Light}
-        onPress={() => onGoogleButtonPress().then(user => signIn(user.user))}
-        disabled={isSigninInProgress}
-      />
+    <View style={styles.container}>
+      <View style={{marginBottom: 25}}>
+        <Text style={{fontSize: 25, fontWeight: "bold"}}>Login</Text>
+      </View>
+      <View>
+        <GoogleSigninButton
+          style={styles.button}
+          size={GoogleSigninButton.Size.Icon}
+          color={GoogleSigninButton.Color.Light}
+          onPress={() => onGoogleButtonPress().then(user => signIn(user.user))}
+          disabled={isSigninInProgress}
+        />
+      </View>
     </View>
   );
 }
 
-export default SignInScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: "red"
+
+  },
+  button: {
+    borderWidth: 1,
+    width: 150,
+
+  }
+})
