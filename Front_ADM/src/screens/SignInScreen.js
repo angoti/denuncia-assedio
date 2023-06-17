@@ -17,13 +17,13 @@ export const logOut = async () => {
   try {
     await GoogleSignin.signOut();
   } catch (error) {
-    console.error(error);
+    console.error(error, "Erro aqui logOut");
   }
 };
 
 export const getCurrentUserInfo = async () => {
   try {
-    const userInfo = await GoogleSignin.signInSilently();
+    const userInfo = await GoogleSignin.signInrSilently();
     return userInfo;
   } catch (error) {
     console.log(error);

@@ -1,3 +1,18 @@
+import React from 'react';
+import { SafeAreaView } from 'react-native';
+import CardList from './src/pages/CardList';
+
+const App = () => {
+  return (
+    <SafeAreaView>
+      <CardList />
+    </SafeAreaView>
+  );
+};
+
+export default App;
+
+/*
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createContext, useState } from 'react';
@@ -58,6 +73,9 @@ export default function App() {
             // Usuário autenticado
             <Stack.Screen name="Home">
               {props => <HomeScreen {...props} signOut={signOut} />}
+              <SafeAreaView>
+      <CardList />
+    </SafeAreaView>
             </Stack.Screen>
           )}
         </Stack.Navigator>
@@ -65,3 +83,4 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
+*/
