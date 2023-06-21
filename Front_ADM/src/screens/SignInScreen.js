@@ -7,27 +7,24 @@ import { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text } from 'react-native-paper';
 
-
 GoogleSignin.configure({
   webClientId:
-    '829208944695-43u8nvtkbtnufrm6pto7r7pk4do2u4a4.apps.googleusercontent.com',
+    '169126752351-2d3etsonaa4qvd9c510bv15mb1bfrk4a.apps.googleusercontent.com',
 });
 
 export const logOut = async () => {
   try {
     await GoogleSignin.signOut();
   } catch (error) {
-    console.error(error, "Erro aqui logOut");
+    console.error(error, 'Erro aqui logOut');
   }
 };
 
 export const getCurrentUserInfo = async () => {
   try {
-    const userInfo = await GoogleSignin.signInrSilently();
+    const userInfo = await GoogleSignin.signInSilently();
     return userInfo;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 };
 
 export default function SignInScreen({ signIn }) {
@@ -47,8 +44,8 @@ export default function SignInScreen({ signIn }) {
 
   return (
     <View style={styles.container}>
-      <View style={{marginBottom: 25}}>
-        <Text style={{fontSize: 25, fontWeight: "bold"}}>Login</Text>
+      <View style={{ marginBottom: 25 }}>
+        <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Login</Text>
       </View>
       <View>
         <GoogleSigninButton
@@ -63,18 +60,15 @@ export default function SignInScreen({ signIn }) {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: "red"
-
+    borderColor: 'red',
   },
   button: {
     borderWidth: 1,
     width: 150,
-
-  }
-})
+  },
+});

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import Card from './Card';
 
-const CardList = () => {
+const CardList = ({ lista }) => {
   const data = [
     { id: '1', title: 'Card 1', description: 'Description for Card 1' },
     { id: '2', title: 'Card 2', description: 'Description for Card 2' },
@@ -11,13 +11,13 @@ const CardList = () => {
   ];
 
   const renderItem = ({ item }) => (
-    <Card title={item.title} description={item.description} />
+    <Card title={item.denunciaStatus} description={item.text} />
   );
 
   return (
     <View>
       <FlatList
-        data={data}
+        data={lista}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />

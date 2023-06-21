@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import CardList from './src/pages/CardList';
@@ -11,14 +12,15 @@ const App = () => {
 };
 
 export default App;
+*/
 
-/*
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createContext, useState } from 'react';
 import SplashScreen from './src/screens/SplashScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import { logOut } from './src/screens/SignInScreen';
 
 // @ts-ignore
 export const AuthContext = createContext();
@@ -39,18 +41,24 @@ export default function App() {
       });
     } else {
       setState(prev => {
-        return { isLoading: false, userToken: data };
+        dados = {
+          displayName: data.givenName + ' ' + data.familyName,
+          photoURL: data.photo,
+        };
+        return { isLoading: false, userToken: dados };
       });
     }
   };
 
   const signIn = data => {
+    console.log(data);
     setState(prev => {
       return { ...prev, userToken: data };
     });
   };
 
   const signOut = () => {
+    logOut();
     setState(prev => {
       return { isLoading: true, userToken: null };
     });
@@ -73,9 +81,6 @@ export default function App() {
             // Usuário autenticado
             <Stack.Screen name="Home">
               {props => <HomeScreen {...props} signOut={signOut} />}
-              <SafeAreaView>
-      <CardList />
-    </SafeAreaView>
             </Stack.Screen>
           )}
         </Stack.Navigator>
@@ -83,4 +88,3 @@ export default function App() {
     </AuthContext.Provider>
   );
 }
-*/
