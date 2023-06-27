@@ -43,8 +43,7 @@ public class TestConfig implements CommandLineRunner {
 
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
-		Denuncia d1 = new Denuncia(null, "Refeitorio", "07/05/2021 17:23", "ALO ALO MARCIANO AQUI QUEM FALA É DA TERRA",
-				"cARLOS DA SILVA");
+		//Denuncia d1 = new Denuncia(null, "Refeitorio", "07/05/2021 17:23", "ALO ALO MARCIANO AQUI QUEM FALA É DA TERRA", "cARLOS DA SILVA");
 
 		// Denuncia d2 = new Denuncia(null, "Sala", "07/06/2021 17:23", u1, "TEXT AREA
 		// PARA EXPOR DENUNCIA d2", "Author2");
