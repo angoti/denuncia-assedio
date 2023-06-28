@@ -11,7 +11,7 @@ const AuthContext = createContext({
   },
 });
 
-export function NewLogin() {
+function NewLogin() {
   const { setUser } = useContext(AuthContext);
 
   return (

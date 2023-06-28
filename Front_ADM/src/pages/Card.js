@@ -1,11 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { deleteDenuncia, getDenuncias } from '../services/ApiBackEnd';
 
-const Card = ({ title, description }) => {
+const Card = ({ title, description, id, setLista }) => {
   return (
     <View style={styles.card}>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
+      <Pressable
+        style={({ pressed }) => [
+          {
+            backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+          },
+        ]}
+        onPress={() => {
+          deleteDenuncia(id).then(() => {
+            getDenuncias(setLista);
+          });
+        }}>
+        <MaterialCommunityIcons name="delete-off" size={24} color="black" />
+      </Pressable>
     </View>
   );
 };

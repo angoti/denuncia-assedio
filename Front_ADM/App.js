@@ -54,6 +54,7 @@ export default function App() {
     console.log(data);
     setState(prev => {
       return { ...prev, userToken: data };
+
     });
   };
 
